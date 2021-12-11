@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply font-inter;
+    }
+}
+
+@layer utilities {
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 10px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background-color: theme(colors.gray.200);
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: theme(colors.gray.300);
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background-color: theme(colors.gray.400);
+    }
+}
