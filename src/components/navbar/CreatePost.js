@@ -15,7 +15,7 @@ export const CreatePost = ({ isOpen, setIsOpen }) => {
 	const [caption, setCaption] = useState("");
 	const { mutate: uploadImage, data, isLoading: isUploading } = useUploadImage();
 	const { mutate: createPost, data: postData, isLoading } = useCreatePost()
-	const {user: {token}} = useAuth();
+	const {user} = useAuth();
 	// const { token } = useUserData();
 	// const [createPost, { loading, error }] = useMutation(CREATE_POST);
 
@@ -47,7 +47,7 @@ export const CreatePost = ({ isOpen, setIsOpen }) => {
 		if (!isUploading && data) {
 			createPost({
 				variables: {
-					token,
+					token: user?.token,
 					caption,
 					image: data.secure_url
 				}

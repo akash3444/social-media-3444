@@ -16,6 +16,6 @@ const searchUser = async ({ queryKey }) => {
 }
 
 export const useSearchUser = (query) => {
-    const { user:  {token} } = useAuth();
-    return useQuery(["search", { query, token }], searchUser, { enabled: false })
+    const { user } = useAuth();
+    return useQuery(["search", { query, token: user?.token }], searchUser, { enabled: false })
 };
